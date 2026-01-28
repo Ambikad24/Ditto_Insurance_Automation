@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-01-28T00:46:17 IST" name="Suite" finished-at="2026-01-28T00:46:30 IST" duration-ms="13266">
+    <groups>
+    </groups>
+    <test started-at="2026-01-28T00:46:17 IST" name="Test" finished-at="2026-01-28T00:46:30 IST" duration-ms="13266">
+      <class name="TestCases.TC001_CheckAmountCalculationTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:TestCases.TC001_CheckAmountCalculationTest@662ac478]" started-at="2026-01-28T00:46:17 IST" name="setup" finished-at="2026-01-28T00:46:21 IST" duration-ms="3866" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyAmountCal()[pri:0, instance:TestCases.TC001_CheckAmountCalculationTest@662ac478]" started-at="2026-01-28T00:46:21 IST" name="verifyAmountCal" finished-at="2026-01-28T00:46:30 IST" duration-ms="9320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAmountCal -->
+      </class> <!-- TestCases.TC001_CheckAmountCalculationTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
