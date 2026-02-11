@@ -1,54 +1,54 @@
 name: Selenium CI Pipeline
 
 on:
-push:
-branches: [ main ]
-pull_request:
-branches: [ main ]
-workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-selenium-tests:
-runs-on: ubuntu-latest
-steps:
-  - name: Checkout source code
-    uses: actions/checkout@v4
+  selenium-tests:
+    runs-on: ubuntu-latest
 
-  - name: Setup Java
-    uses: actions/setup-java@v4
-    with:
-      distribution: 'temurin'
-      java-version: '17'
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
 
-  - name: Setup Chrome
-    uses: browser-actions/setup-chrome@v1
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
 
-  - name: Verify Chrome
-    run: google-chrome --version
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
 
-  - name: Build project
-    run: mvn clean install -DskipTests
+      - name: Verify Chrome
+        run: google-chrome --version
 
-  - name: Run Selenium Tests
-    run: mvn test
+      - name: Build project
+        run: mvn clean install -DskipTests
 
-  - name: Generate Surefire Report
-    if: always()
-    run: mvn surefire-report:report
+      - name: Run Selenium Tests
+        run: mvn test
 
-  - name: Upload Test Report
-    if: always()
-    uses: actions/upload-artifact@v4
-    with:
-      name: selenium-report
-      path: target/site
+      - name: Generate Surefire Report
+        if: always()
+        run: mvn surefire-report:report
 
-  - name: Archive logs/screenshots
-    if: failure()
-    uses: actions/upload-artifact@v4
-    with:
-      name: selenium-failure-artifacts
-      path: |
-        target/screenshots
-        target/logs
+      - name: Upload Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-report
+          path: target/site
 
+      - name: Archive logs/screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-failure-artifacts
+          path: |
+            target/screenshots
+            target/logs
